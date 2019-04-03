@@ -1,0 +1,4 @@
+﻿  Demo.cpp
+E:\HomeWork\VisualStudio\c++\Strack\Calculate4\Demo.cpp(78): warning C4715: “calcu”: 不是所有的控件路径都返回值
+E:\HomeWork\VisualStudio\c++\Strack\Calculate4\Demo.cpp(66): warning C4715: “outPrior”: 不是所有的控件路径都返回值
+  Calculate4.vcxproj -> E:\HomeWork\VisualStudio\c++\Strack\Calculate4\Debug\Calculate4.exe
