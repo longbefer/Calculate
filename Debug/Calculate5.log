@@ -1,0 +1,3 @@
+﻿  Demo.cpp
+E:\HomeWork\VisualStudio\c++\Strack\Calculate5\Demo.cpp(93): warning C4715: “popr”: 不是所有的控件路径都返回值
+  Calculate5.vcxproj -> E:\HomeWork\VisualStudio\c++\Strack\Calculate5\Debug\Calculate5.exe
