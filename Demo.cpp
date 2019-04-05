@@ -72,7 +72,7 @@ char popr(Stack<char> inS, char outOpera)//判断优先级
 		else return ERROR;
 	case '*':
 	case '/':
-		if (inTop == '+' || inTop == '-' || inTop == '(')
+		if (inTop == '+' || inTop == '-' || inTop == '(' || inTop == '#')
 			return '<';
 		else if (inTop == '*' || inTop == '/') return '>';
 		else return ERROR;
@@ -216,7 +216,7 @@ double Running(const char* formula)
 					dec++;
 				if (dec > 1)
 				{
-					cout << "只能拥有一个小数点";
+					cout << "只能拥有一个小数点" << endl;
 					return ERROR;
 				}
 				temp[temj++] = formula[fli++];
@@ -238,7 +238,7 @@ double Running(const char* formula)
 			{
 				if (fli == length - 1 && charNum != ')') {
 					cout << "错误的公式，不能以运算符结尾。";
-					return 0;
+					return ERROR;
 				}
 				if (!hasNum) {
 					if (charNum == '-' || charNum == '+') {
@@ -247,7 +247,7 @@ double Running(const char* formula)
 					} //负号运算
 					if (charNum == '*' || charNum == '/' || charNum == ')') {
 						cout << "公式错误";
-						return 0;
+						return ERROR;
 					} //排除（）、（*、（/这样的公式
 					if (charNum == '(')
 						push(opera, charNum);
@@ -257,7 +257,10 @@ double Running(const char* formula)
 					hasNum = false;
 					int cal = poprCal(num, opera, charNum, hasNum);
 					if (cal == ERROR)
+					{
+						cout << "不可预知的错误";
 						return ERROR;
+					}
 					else if (cal) fli++;
 				}
 			}
@@ -279,7 +282,10 @@ double Running(const char* formula)
 		{
 			while (opera.base != opera.top)
 				if (poprCal(num, opera, '#', hasNum) == ERROR)//结束
+				{
+					cout << "不可预知的错误";
 					return ERROR;
+				}
 			return *num.base;
 		}
 	}
@@ -291,8 +297,6 @@ int main(void)
 	cin >> formula;
 	//cout << toNum(formula);
 	double reslut = Running(formula);
-	if (reslut == ERROR)
-		cout << "错误";
-	else cout << reslut;
+	cout << reslut;
 	return 0;
 }
